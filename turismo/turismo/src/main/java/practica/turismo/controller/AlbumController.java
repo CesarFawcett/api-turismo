@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import jakarta.validation.Valid;
 import practica.turismo.dto.PhotoDTO;
 import practica.turismo.entity.Photo;
 import practica.turismo.entity.Tour;
@@ -34,7 +36,7 @@ public class AlbumController {
 
     @PostMapping("/photos")
     public ResponseEntity<PhotoDTO> uploadPhoto(@RequestParam("file") MultipartFile file,
-            @RequestBody PhotoDTO photoDTO) {
+            @Valid @RequestPart("photoDTO") PhotoDTO photoDTO) {
         String url = uploadService.uploadFile(file);
         Tour tour = tourService.findById(photoDTO.getTourId()).orElseThrow();
         Photo photo = new Photo();

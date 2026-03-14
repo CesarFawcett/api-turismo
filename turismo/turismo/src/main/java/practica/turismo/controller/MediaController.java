@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import jakarta.validation.Valid;
@@ -40,7 +41,7 @@ public class MediaController {
 
     @PostMapping
     public ResponseEntity<MediaDTO> uploadMedia(@RequestParam("file") MultipartFile file,
-            @Valid @RequestBody MediaDTO mediaDTO) {
+            @Valid @RequestPart("mediaDTO") MediaDTO mediaDTO) {
         String url = uploadService.uploadFile(file);
         Media media = new Media();
         media.setUrl(url);
