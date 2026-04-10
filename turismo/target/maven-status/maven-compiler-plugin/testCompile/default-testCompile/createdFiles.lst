@@ -1,0 +1,9 @@
+practica\turismo\controller\AuthControllerTest.class
+practica\turismo\controller\AlbumControllerTest.class
+practica\turismo\controller\MediaControllerTest.class
+practica\turismo\controller\CommentControllerTest.class
+practica\turismo\controller\ModerationControllerTest.class
+practica\turismo\TurismoApplicationTests.class
+practica\turismo\controller\TourControllerTest.class
+practica\turismo\controller\PlaceControllerTest.class
+practica\turismo\controller\ReservationControllerTest.class
